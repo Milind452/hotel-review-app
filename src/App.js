@@ -1,6 +1,9 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 
 import Header from "./components/Header/Header";
+import AppContext from "./context/AppContext";
+import Hotels from "./pages/Hotels";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,7 +26,14 @@ function App() {
         <>
             <GlobalStyle />
             <AppWrapper>
-                <Header />
+                <BrowserRouter>
+                    <Header />
+                    <AppContext>
+                        <Routes>
+                            <Route path="/" element={<Hotels />} />
+                        </Routes>
+                    </AppContext>
+                </BrowserRouter>
             </AppWrapper>
         </>
     );
