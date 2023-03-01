@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import AppContext from "./context/AppContext";
 import HotelDetail from "./pages/HotelDetail";
 import Hotels from "./pages/Hotels";
+import ReviewForm from "./pages/ReviewForm";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -35,6 +36,10 @@ function App() {
                             <Route
                                 path="/hotel/:hotelId"
                                 element={<HotelDetail />}
+                            />
+                            <Route
+                                path="/hotel/:hotelId/new"
+                                element={<ReviewForm />}
                             />
                         </Routes>
                     </AppContext>
