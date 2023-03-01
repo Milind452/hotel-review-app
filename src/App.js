@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import Header from "./components/Header/Header";
 import AppContext from "./context/AppContext";
+import HotelDetail from "./pages/HotelDetail";
 import Hotels from "./pages/Hotels";
 
 const GlobalStyle = createGlobalStyle`
@@ -31,6 +32,10 @@ function App() {
                     <AppContext>
                         <Routes>
                             <Route path="/" element={<Hotels />} />
+                            <Route
+                                path="/hotel/:hotelId"
+                                element={<HotelDetail />}
+                            />
                         </Routes>
                     </AppContext>
                 </BrowserRouter>
