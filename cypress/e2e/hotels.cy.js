@@ -29,4 +29,25 @@ describe("Cypress", () => {
             cy.get("button").click();
         });
     });
+
+    it("and verifies if the review is added", () => {
+        cy.visit("http://localhost:3000");
+        cy.get("a").first().click();
+
+        cy.get("[data-cy=addReview]").click();
+        cy.location("pathname").should("include", "new");
+
+        cy.get("form").within(() => {
+            cy.get("input[name=title]").type("Test review");
+            cy.get("input[name=description]").type(
+                "Is a test review by Cypress"
+            );
+            cy.get("input[name=rating]").type(4);
+            cy.get("button").click();
+        });
+
+        cy.wait(600);
+        cy.get("h3").contains("Test review");
+        cy.get("div").contains("Is a test review by Cypress");
+    });
 });
